@@ -11,8 +11,6 @@ class GameDetails extends Component {
       </div>
     )
   }
-
-
 }
 
 export default GameDetails;

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import Header from '../components/Header'
 import PlayerContainer from './PlayerContainer'
-import starterBoard from "../starterBoard"
 
+//Starting boards. Replace in initial state. Note: gamePackage is an object.
+import starterBoard from "../starterBoard"
 import gamePackage from "../dynamicBoard"
 
 class GameContainer extends Component {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class GameTile extends Component {
-
   render(){
-    // console.log("Game tile already attacked", this.props.alreadyAttacked)
     return(
         <th
           className={updateStrikeSuccess(this.props.alreadyAttacked, this.props.shipPresent)}
@@ -12,11 +10,9 @@ class GameTile extends Component {
         </th>
     )
   }
-
 }
 
 function updateStrikeSuccess(alreadyAttacked, shipPresent){
-  // console.log("determine class result", alreadyAttacked)
   if (shipPresent && alreadyAttacked){
     return "game-tile destroyed"
   }
@@ -32,9 +28,6 @@ function updateStrikeSuccess(alreadyAttacked, shipPresent){
   else if (!shipPresent && !alreadyAttacked) {
     return "game-tile no-status"
   }
-
-
-  //return alreadyAttacked ? "game-tile destroyed" : "game-tile not-destroyed";
 }
 
 export default GameTile;
