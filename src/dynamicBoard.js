@@ -5,8 +5,8 @@ let shipCounter = 0;
 
 
 function trueOrFalse(){
-  let flip = Math.floor(Math.random() * 2);
-  return (flip === 0) ? true : false;
+  let randomBool = Math.floor(Math.random() * 2);
+  return (randomBool === 0) ? true : false;
 }
 
 for (let i = 0; i < 9; i++){
