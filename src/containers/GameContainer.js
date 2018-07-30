@@ -15,22 +15,27 @@ class GameContainer extends Component {
     }
   }
 
-  updateStateElement = (gameTile) => {
+  updateStateElement = (gameTile, tar) => {
     let currentBoard = this.state.opponentBoard;
     let clonedBoard = currentBoard;
     let foundMatchIndex = currentBoard.findIndex((boardInstance) => (
       boardInstance.id === gameTile.id
     ));
     clonedBoard[foundMatchIndex].alreadyAttacked = true;
+    // console.log("clonedBoard", clonedBoard)
+    tar.className += " destroyed";
     this.setState({ opponentBoard:clonedBoard })
   }
 
   clickHandler = (gameTile, event) => {
+    event.persist();
+    // console.log("Current event in handler", event.target)
     let currentScore = this.state.currentScore;
     let shipsRemaining = this.state.shipsRemaining;
 
     if (gameTile.shipPresent && gameTile.alreadyAttacked === false){
-      this.updateStateElement(gameTile);
+
+      this.updateStateElement(gameTile, event.target);
       currentScore++;
       shipsRemaining--;
       this.setState({currentScore: currentScore});
@@ -51,8 +56,16 @@ class GameContainer extends Component {
   }
 
   render(){
-    console.log("current board at render:", this.state.opponentBoard)
-    return(
+    // console.log("current board at render:", this.state.opponentBoard)
+
+
+      if (this.state.shipsRemaining === 0){
+        return (<div>
+          <h1>Game over</h1>
+          <h3>Refresh to the page to play again.</h3>
+        </div>)
+      }
+      return(
       <div className="game-container">
         <Header />
         <PlayerContainer id="opponent"

@@ -1,3 +1,5 @@
+
+
 .table-body {
   display:flex;
 }
@@ -71,9 +73,21 @@
   border: .75px;
   border-style: solid;
   border-color: white;
-  background-color: #4083ef;
+
   width: 32%;
   height: 3rem;
+}
+
+.not-destroyed{
+  background-color: #4083ef;
+}
+
+.destroyed{
+  background-color: red;
+}
+
+.game-tile:hover{
+  background-color: yellow;
 }
 
 .header{
