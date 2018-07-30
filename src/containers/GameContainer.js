@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Header from '../components/Header'
 import PlayerContainer from './PlayerContainer'
-import staterBoard from "../starterBoard"
+import starterBoard from "../starterBoard"
 
 import gamePackage from "../dynamicBoard"
 
@@ -11,59 +11,53 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-      opponentBoard: gamePackage.dynamicBoard,
+      opponentBoard: starterBoard,
       currentScore: 0,
-      shipsRemaining: gamePackage.shipCount
+      shipsRemaining: 3
     }
   }
 
   updateStateElement = (gameTile, tar) => {
+    //find a more react-y way to do this. Better than cloning or copying with spread operator.
     let currentBoard = this.state.opponentBoard;
     let clonedBoard = currentBoard;
     let foundMatchIndex = currentBoard.findIndex((boardInstance) => (
       boardInstance.id === gameTile.id
     ));
     clonedBoard[foundMatchIndex].alreadyAttacked = true;
-    // console.log("clonedBoard", clonedBoard)
-    tar.className += " destroyed";
     this.setState({ opponentBoard:clonedBoard })
   }
 
   clickHandler = (gameTile, event) => {
-    event.persist();
-    // console.log("Current event in handler", event.target)
+    // event.persist();
     let currentScore = this.state.currentScore;
     let shipsRemaining = this.state.shipsRemaining;
 
     if (gameTile.shipPresent && gameTile.alreadyAttacked === false){
-
       this.updateStateElement(gameTile, event.target);
       currentScore++;
       shipsRemaining--;
-      this.setState({currentScore: currentScore});
-      this.setState({shipsRemaining: shipsRemaining});
+      this.setState({currentScore});
+      this.setState({shipsRemaining});
     }
 
     else if (gameTile.alreadyAttacked) {
-      alert("You've already successfully attacked this tile")
+      alert("You've already attacked this tile")
     }
 
     else if (gameTile.shipPresent === false){
-      console.log("FAILURE. NO SHIP PRESENT ON THIS TILE.")
       this.updateStateElement(gameTile, event.target);
-      //update to indicate failed hit.
     }
 
     else{
-      console.log("No hit. Try again.")
+      alert("The game is broken if this alert displays.")
     }
   }
 
   render(){
-    // console.log("current board at render:", this.state.opponentBoard)
-
       if (this.state.shipsRemaining === 0){
-        return (<div>
+        return(
+        <div>
           <h1>Game over</h1>
           <h3>Refresh to the page to play again.</h3>
         </div>)

@@ -9,7 +9,7 @@ function trueOrFalse(){
   return (randomBool === 0) ? true : false;
 }
 
-for (let i = 0; i < 25; i++){
+for (let i = 0; i < 9; i++){
   let gameTile = {
     id: i,
     alreadyAttacked: false,
