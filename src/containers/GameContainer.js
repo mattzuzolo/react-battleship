@@ -42,8 +42,8 @@ class GameContainer extends Component {
       this.setState({shipsRemaining: shipsRemaining});
     }
 
-    else if (gameTile.alreadyAttacked && gameTile.shipPresent) {
-      console.log("You've already successfully attacked this tile")
+    else if (gameTile.alreadyAttacked) {
+      alert("You've already successfully attacked this tile")
     }
 
     else if (gameTile.shipPresent === false){
