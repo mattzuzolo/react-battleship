@@ -5,6 +5,7 @@ import PlayerContainer from './PlayerContainer'
 
 //Starting boards. Replace in initial state. Note: gamePackage is an object.
 import starterBoard from "../starterBoard"
+import starterBoardTwo from "../starterBoardTwo"
 import gamePackage from "../dynamicBoard"
 
 class GameContainer extends Component {
@@ -13,6 +14,7 @@ class GameContainer extends Component {
 
     this.state = {
       opponentBoard: starterBoard,
+      userBoard: starterBoardTwo,
       currentScore: 0,
       shipsRemaining: 3
     }
@@ -65,7 +67,7 @@ class GameContainer extends Component {
       return(
       <div className="game-container">
         <Header />
-        <PlayerContainer id="opponent"
+        <PlayerContainer className="player-boards" id="opponent"
           opponentBoard={this.state.opponentBoard}
           currentScore={this.state.currentScore}
           shipsRemaining={this.state.shipsRemaining}

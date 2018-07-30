@@ -4,6 +4,10 @@
   display:flex;
 }
 
+.player-container{
+  padding: 0.5rem;
+}
+
 .App {
   text-align: center;
 }
