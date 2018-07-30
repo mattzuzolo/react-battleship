@@ -4,14 +4,16 @@ import Header from '../components/Header'
 import PlayerContainer from './PlayerContainer'
 import staterBoard from "../starterBoard"
 
+import gamePackage from "../dynamicBoard"
+
 class GameContainer extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      opponentBoard: staterBoard,
+      opponentBoard: gamePackage.dynamicBoard,
       currentScore: 0,
-      shipsRemaining: 3
+      shipsRemaining: gamePackage.shipCount
     }
   }
 
