@@ -43,11 +43,13 @@ class GameContainer extends Component {
     }
 
     else if (gameTile.alreadyAttacked && gameTile.shipPresent) {
-      alert("You've already successfully attacked this tile")
+      console.log("You've already successfully attacked this tile")
     }
 
     else if (gameTile.shipPresent === false){
-      alert("FAILURE. NO SHIP PRESENT ON THIS TILE.")
+      console.log("FAILURE. NO SHIP PRESENT ON THIS TILE.")
+      this.updateStateElement(gameTile, event.target);
+      //update to indicate failed hit.
     }
 
     else{
@@ -57,7 +59,6 @@ class GameContainer extends Component {
 
   render(){
     // console.log("current board at render:", this.state.opponentBoard)
-
 
       if (this.state.shipsRemaining === 0){
         return (<div>

@@ -73,18 +73,29 @@
   border: .75px;
   border-style: solid;
   border-color: white;
-
+  background-color: #4083ef;
   width: 32%;
   height: 3rem;
+}
+
+.destroyed{
+  background-color: red;
 }
 
 .not-destroyed{
   background-color: #4083ef;
 }
 
-.destroyed{
-  background-color: red;
+.attacked-no-result{
+  background-color: gray;
 }
+
+.no-status{
+  background-color: #4083ef;
+}
+
+
+
 
 .game-tile:hover{
   background-color: yellow;

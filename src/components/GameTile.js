@@ -6,7 +6,7 @@ class GameTile extends Component {
     // console.log("Game tile already attacked", this.props.alreadyAttacked)
     return(
         <th
-          className={determineClass(this.props.alreadyAttacked)}
+          className={updateStrikeSuccess(this.props.alreadyAttacked, this.props.shipPresent)}
           onClick={(event) => this.props.clickHandler(this.props.gameTile, event)}>
           x
         </th>
@@ -15,9 +15,26 @@ class GameTile extends Component {
 
 }
 
-function determineClass(alreadyAttacked){
+function updateStrikeSuccess(alreadyAttacked, shipPresent){
   // console.log("determine class result", alreadyAttacked)
-  return alreadyAttacked ? "game-tile destroyed" : "game-tile not-destroyed";
+  if (shipPresent && alreadyAttacked){
+    return "game-tile destroyed"
+  }
+
+  else if (shipPresent && !alreadyAttacked){
+    return "game-tile not-destroyed"
+  }
+
+  else if (!shipPresent && alreadyAttacked){
+    return "game-tile attacked-no-result"
+  }
+
+  else if (!shipPresent && !alreadyAttacked) {
+    return "game-tile no-status"
+  }
+
+
+  //return alreadyAttacked ? "game-tile destroyed" : "game-tile not-destroyed";
 }
 
 export default GameTile;

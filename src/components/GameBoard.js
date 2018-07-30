@@ -16,6 +16,7 @@ class GameBoard extends Component {
               key={UUID()}
               gameTile={gameTile}
               alreadyAttacked={gameTile.alreadyAttacked}
+              shipPresent={gameTile.shipPresent}
               clickHandler={this.props.clickHandler}/>
           )}
           </tr>
