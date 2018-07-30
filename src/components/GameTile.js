@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class GameTile extends Component {
-  render(){
-    return(
-        <th
-          className={updateStrikeSuccess(this.props.alreadyAttacked, this.props.shipPresent)}
-          onClick={(event) => this.props.clickHandler(this.props.gameTile, event)}>
-          x
-        </th>
-    )
-  }
+const GameTile = (props) => {
+
+  return(
+      <th
+        className={updateStrikeSuccess(props.alreadyAttacked, props.shipPresent)}
+        onClick={(event) => props.clickHandler(props.gameTile, event)}>
+        x
+      </th>
+  )
 }
 
 function updateStrikeSuccess(alreadyAttacked, shipPresent){
