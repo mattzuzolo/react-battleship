@@ -8,8 +8,6 @@ const GameDetails = (props) => {
       <h3>Remaining ships: {props.shipsRemaining}</h3>
     </div>
   )
-
-
 }
 
 export default GameDetails;

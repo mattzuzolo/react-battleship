@@ -4,7 +4,7 @@ import GameBoard from '../components/GameBoard'
 import GameDetails from '../components/GameDetails'
 
 class PlayerContainer extends Component {
-
+  //state stuff (and other functionality in GameContainer) should really live in this componenet. Will refactor later. That's why not funcional component.
   render(){
     return(
     <div className="player-container">

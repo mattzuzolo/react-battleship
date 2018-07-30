@@ -30,7 +30,6 @@ class GameContainer extends Component {
   }
 
   clickHandler = (gameTile, event) => {
-    // event.persist();
     let currentScore = this.state.currentScore;
     let shipsRemaining = this.state.shipsRemaining;
 
