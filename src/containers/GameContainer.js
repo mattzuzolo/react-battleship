@@ -13,10 +13,9 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-      opponentBoard: starterBoard,
-      userBoard: starterBoardTwo,
+      opponentBoard: gamePackage.dynamicBoard,
       currentScore: 0,
-      shipsRemaining: 3
+      shipsRemaining: gamePackage.shipCount
     }
   }
 
@@ -57,6 +56,7 @@ class GameContainer extends Component {
   }
 
   render(){
+    console.log("See solution here: ", this.state.opponentBoard)
       if (this.state.shipsRemaining === 0){
         return(
         <div>
